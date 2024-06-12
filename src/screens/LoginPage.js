@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import Loading from "../components/Loading";
 
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,6 +38,8 @@ const LoginPage = () => {
         secureTextEntry={true}
         value={password}
       />
+
+      {/* login button */}
       <Pressable
         onPress={() => {
           setIsLoading(true)
@@ -45,13 +47,28 @@ const LoginPage = () => {
         }}
         style={({ pressed }) => [
           {
-            backgroundColor: pressed ? "blue" : "gray",
+            backgroundColor: pressed ? "gray" : "blue",
           },
-          styles.button,
+          styles.buttonLogin,
         ]}
       >
         <Text style={styles.buttonText}>Login</Text>
       </Pressable>
+        {/* register button */}
+      <Pressable
+        onPress={() => {
+          navigation.navigate('Register')
+        }}
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed ? "gray" : "green",
+          },
+          styles.button,
+        ]}
+      >
+        <Text style={styles.buttonText}>Sign Up</Text>
+      </Pressable>
+
 
     {isLoading &&  <Loading setIsLoading={setIsLoading}/>}
     </View>
@@ -78,6 +95,14 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 1,
     borderRadius: 10,
+  },
+  buttonLogin: {
+    width: '50%',
+    paddingBottom: 10,
+    paddingTop: 10,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     width: 120,

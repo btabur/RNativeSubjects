@@ -26,12 +26,13 @@ const styles = StyleSheet.create({
         flex:1,
         position:'absolute',
         flexDirection:'row',
-        width:'100%',
-        height:'100%',
+        width:'60%',
+        height:'40%',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'tomato',
-        gap:10
+        backgroundColor: 'rgba(255, 99, 71, 0.6)',
+        gap:10,
+        borderRadius:30,
     },
     loadingText:{
         fontSize:20,
@@ -39,8 +40,8 @@ const styles = StyleSheet.create({
         fontWeight:'bold'
     },btnCloseContainer:{
         position:'absolute',
-        top:40,
-        right:40,
+        top:10,
+        right:10,
         borderColor:'white',
         borderWidth:1,
         padding:3,
